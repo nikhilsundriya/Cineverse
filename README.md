@@ -2,7 +2,7 @@
 
 <div style="text-align:center">
 
-![CINEXTMA Mockup Screenshot](https://raw.githubusercontent.com/wisnuwirayuda15/cinextma/refs/heads/master/src/public/img/mockup.png)
+![CINEXTMA Mockup Screenshot](https://raw.githubusercontent.com/nikhilsundriya/cinextma/refs/heads/master/src/public/img/mockup.png)
 
 </div>
 
