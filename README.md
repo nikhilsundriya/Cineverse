@@ -2,8 +2,6 @@
 
 <div style="text-align:center">
 
-![CINEXTMA Mockup Screenshot](https://raw.githubusercontent.com/nikhilsundriya/cinextma/refs/heads/master/src/public/img/mockup.png)
-
 </div>
 
 🍿CINEXTMA🍿 is an open-source, free movies and TV shows streaming platform built with the latest web technologies. It offers a seamless and enjoyable viewing experience, allowing users to discover, search, and enjoy a vast library of content.
