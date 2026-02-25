@@ -6,8 +6,9 @@ import { RegisterFormSchema } from "@/schemas/auth";
 import PasswordInput from "@/components/ui/input/PasswordInput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Turnstile } from "@marsidev/react-turnstile";
 import { useCallback, useState } from "react";
+// ❌ Turnstile temporarily disabled
+// import { Turnstile } from "@marsidev/react-turnstile";
 import { isEmpty } from "@/utils/helpers";
 import { env } from "@/utils/env";
 import GoogleLoginButton from "@/components/ui/button/GoogleLoginButton";
@@ -32,26 +33,38 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
     },
   });
 
+  // ✅ FIXED SUBMIT HANDLER
   const onSubmit = handleSubmit(async (data) => {
-    if (isEmpty(data.captchaToken)) {
-      setIsVerifying(true);
-      return;
-    }
+    try {
+      // 🔥 CAPTCHA TEMPORARILY DISABLED FOR DEVELOPMENT
+      // if (isEmpty(data.captchaToken)) {
+      //   setIsVerifying(true);
+      //   return;
+      // }
 
-    const { success, message } = await signUp(data);
+      const { success, message } = await signUp(data);
 
-    if (!success) {
-      setValue("captchaToken", undefined);
+      if (!success) {
+        setValue("captchaToken", undefined);
+      }
+
+      addToast({
+        title: message,
+        color: success ? "success" : "danger",
+        timeout: success ? Infinity : undefined,
+      });
+    } catch (err) {
+      console.error("Signup error:", err);
+      addToast({
+        title: "Something went wrong. Please try again.",
+        color: "danger",
+      });
+    } finally {
       setIsVerifying(false);
     }
-
-    return addToast({
-      title: message,
-      color: success ? "success" : "danger",
-      timeout: success ? Infinity : undefined,
-    });
   });
 
+  // ⚠️ kept for future production use
   const onCaptchaSuccess = useCallback(
     (token: string) => {
       setValue("captchaToken", token);
@@ -73,6 +86,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
         <p className="text-small text-foreground-500 mb-4 text-center">
           Join to track your favorites and watch history
         </p>
+
         <Input
           {...register("username")}
           isInvalid={!!errors.username?.message}
@@ -84,6 +98,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
           startContent={<User className="text-xl" />}
           isDisabled={isSubmitting || isVerifying}
         />
+
         <Input
           {...register("email")}
           isInvalid={!!errors.email?.message}
@@ -96,6 +111,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
           startContent={<Mail className="text-xl" />}
           isDisabled={isSubmitting || isVerifying}
         />
+
         <PasswordInput
           value={watch("password")}
           {...register("password")}
@@ -108,6 +124,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
           startContent={<LockPassword className="text-xl" />}
           isDisabled={isSubmitting || isVerifying}
         />
+
         <PasswordInput
           {...register("confirm")}
           isInvalid={!!errors.confirm?.message}
@@ -119,6 +136,9 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
           startContent={<LockPassword className="text-xl" />}
           isDisabled={isSubmitting || isVerifying}
         />
+
+        {/* 🔥 CAPTCHA DISABLED FOR DEVELOPMENT */}
+        {/* 
         {isVerifying && (
           <Turnstile
             className="flex h-fit w-full items-center justify-center"
@@ -126,6 +146,8 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
             onSuccess={onCaptchaSuccess}
           />
         )}
+        */}
+
         <Button
           className="mt-3 w-full"
           color="primary"
@@ -136,12 +158,15 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
           {getButtonText()}
         </Button>
       </form>
+
       <div className="flex items-center gap-4 py-2">
         <Divider className="flex-1" />
         <p className="text-tiny text-default-500 shrink-0">OR</p>
         <Divider className="flex-1" />
       </div>
+
       <GoogleLoginButton isDisabled={isSubmitting || isVerifying} />
+
       <p className="text-small text-center">
         Already have an account?
         <Link

@@ -22,11 +22,11 @@ const DISCLAIMER_CONTENT = {
     {
       id: "welcome",
       content:
-        "Welcome to Cinextma - a free and open-source movie streaming website. Please read this disclaimer carefully before using this website.",
+        "Welcome to Cineverse - a free and open-source movie streaming website. Please read this disclaimer carefully before using this website.",
     },
     {
       id: "purpose",
-      content: "Cinextma is developed solely for",
+      content: "Cineverse is developed solely for",
       emphasis: "educational and learning purposes.",
       continuation:
         "This website is an open-source project intended to demonstrate web development skills and is not meant to promote or encourage digital piracy in any form.",
@@ -34,7 +34,7 @@ const DISCLAIMER_CONTENT = {
     {
       id: "content-source",
       content:
-        "All content displayed on Cinextma (including but not limited to movies, images, posters, and related information) is sourced from",
+        "All content displayed on Cineverse (including but not limited to movies, images, posters, and related information) is sourced from",
       emphasis: "third-party providers through APIs or embedding.",
       continuation:
         "I do not host, store, or distribute any media files on my servers. The website merely aggregates content that is already available on the internet.",
@@ -42,12 +42,12 @@ const DISCLAIMER_CONTENT = {
     {
       id: "responsibility",
       content:
-        "By using Cinextma, you acknowledge that I bears no responsibility for user actions, content accuracy, or any direct or indirect damages arising from the use of this website. Users are solely responsible for their actions while using this service. I respect intellectual property rights and will respond to legitimate requests from copyright holders for content removal.",
+        "By using Cineverse, you acknowledge that I bears no responsibility for user actions, content accuracy, or any direct or indirect damages arising from the use of this website. Users are solely responsible for their actions while using this service. I respect intellectual property rights and will respond to legitimate requests from copyright holders for content removal.",
     },
     {
       id: "usage",
       content:
-        "This website should only be used for learning purposes. Any illegal activities, including but not limited to unauthorized downloading, redistribution of content, or commercial use, are strictly prohibited. By using Cinextma, you agree to these terms and acknowledge that",
+        "This website should only be used for learning purposes. Any illegal activities, including but not limited to unauthorized downloading, redistribution of content, or commercial use, are strictly prohibited. By using Cineverse, you agree to these terms and acknowledge that",
       emphasis: "you use the service at your own risk.",
     },
   ],

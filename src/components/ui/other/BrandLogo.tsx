@@ -37,7 +37,7 @@ const BrandLogo: React.FC<BrandLogoProps> = ({ animate = false, className }) => 
             })}
           />
         </span>{" "}
-        TMA
+        VERSE
       </span>
     </Link>
   );
