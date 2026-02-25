@@ -7,6 +7,14 @@
   <img src="./cineverse-preview.png" width="900"/>
 </p>
 
+<p align="center">
+  <img src="./cineverse-preview2.png" width="900"/>
+</p>
+
+<p align="center">
+  <img src="./cineverse-preview3.png" width="900"/>
+</p>
+
 🍿Cineverse🍿 is an open-source, free movies and TV shows streaming platform built with the latest web technologies. It offers a seamless and enjoyable viewing experience, allowing users to discover, search, and enjoy a vast library of content.
 
 ## Key Features
