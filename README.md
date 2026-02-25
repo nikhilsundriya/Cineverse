@@ -58,7 +58,7 @@ To run Cineverse locally, follow these steps:
 <<<<<<< HEAD
 git clone https://github.com/nikhilsundriya/Cineverse.git
 =======
-git clone https://github.com/nikhilsundriya/cinextma.git
+git clone https://github.com/nikhilsundriya/cineverse.git
 >>>>>>> d067102cbc910c1d413ffdb5287abd4bddb7a1ba
 ```
 
@@ -88,4 +88,3 @@ Cineverse is licensed under the [MIT License](LICENSE). This means you are free 
 
 =======
 CINEXTMA is licensed under the [MIT License](LICENSE). This means you are free to use, modify, and distribute the application, as long as you include the original copyright and license notice in your work.
->>>>>>> d067102cbc910c1d413ffdb5287abd4bddb7a1ba
