@@ -2,12 +2,10 @@
 
 <div style="text-align:center">
 
-<<<<<<< HEAD
-![Cineverse Mockup Screenshot](https://raw.githubusercontent.com/nikhilsundriya/Cineverse/refs/heads/master/src/public/img/mockup.png)
-
-=======
->>>>>>> d067102cbc910c1d413ffdb5287abd4bddb7a1ba
-</div>
+## 📸 Preview
+<p align="center">
+  <img src="./cineverse-preview.png" width="900"/>
+</p>
 
 🍿Cineverse🍿 is an open-source, free movies and TV shows streaming platform built with the latest web technologies. It offers a seamless and enjoyable viewing experience, allowing users to discover, search, and enjoy a vast library of content.
 
