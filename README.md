@@ -55,11 +55,10 @@ To run Cineverse locally, follow these steps:
 1. Clone the repository:
 
 ```
-<<<<<<< HEAD
 git clone https://github.com/nikhilsundriya/Cineverse.git
 =======
 git clone https://github.com/nikhilsundriya/cineverse.git
->>>>>>> d067102cbc910c1d413ffdb5287abd4bddb7a1ba
+
 ```
 
 2. Install the dependencies:
