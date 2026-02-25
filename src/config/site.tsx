@@ -128,7 +128,7 @@ export const siteConfig: SiteConfigType = {
     ],
   },
   socials: {
-    github: "https://github.com/wisnuwirayuda15/Cineverse",
+    github: "https://github.com/nikhilsundriya/Cineverse",
   },
 };
 

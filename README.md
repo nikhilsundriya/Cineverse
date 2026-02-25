@@ -3,7 +3,7 @@
 <div style="text-align:center">
 
 <<<<<<< HEAD
-![Cineverse Mockup Screenshot](https://raw.githubusercontent.com/wisnuwirayuda15/Cineverse/refs/heads/master/src/public/img/mockup.png)
+![Cineverse Mockup Screenshot](https://raw.githubusercontent.com/nikhilsundriya/Cineverse/refs/heads/master/src/public/img/mockup.png)
 
 =======
 >>>>>>> d067102cbc910c1d413ffdb5287abd4bddb7a1ba
@@ -50,7 +50,7 @@ To run Cineverse locally, follow these steps:
 
 ```
 <<<<<<< HEAD
-git clone https://github.com/wisnuwirayuda15/Cineverse.git
+git clone https://github.com/nikhilsundriya/Cineverse.git
 =======
 git clone https://github.com/nikhilsundriya/cinextma.git
 >>>>>>> d067102cbc910c1d413ffdb5287abd4bddb7a1ba
@@ -80,15 +80,6 @@ Contributions to Cineverse are welcome! If you'd like to contribute, please refe
 <<<<<<< HEAD
 Cineverse is licensed under the [MIT License](LICENSE). This means you are free to use, modify, and distribute the application, as long as you include the original copyright and license notice in your work.
 
-## Star History
-
-<a href="https://www.star-history.com/#wisnuwirayuda15/Cineverse&Timeline">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wisnuwirayuda15/Cineverse&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=wisnuwirayuda15/Cineverse&type=Timeline" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=wisnuwirayuda15/Cineverse&type=Timeline" />
- </picture>
-</a>
 =======
 CINEXTMA is licensed under the [MIT License](LICENSE). This means you are free to use, modify, and distribute the application, as long as you include the original copyright and license notice in your work.
 >>>>>>> d067102cbc910c1d413ffdb5287abd4bddb7a1ba
