@@ -5,7 +5,6 @@ export type ContentType = "movie" | "tv";
 export type Params<T> = {
   params: Promise<T>;
 };
-
 export type ActionResponse<T = null> = Promise<{
   success: boolean;
   message?: string;
