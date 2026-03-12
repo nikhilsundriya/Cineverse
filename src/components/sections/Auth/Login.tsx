@@ -1,8 +1,10 @@
+"use client";
+
 import { signIn } from "@/actions/auth";
 import PasswordInput from "@/components/ui/input/PasswordInput";
 import { LoginFormSchema } from "@/schemas/auth";
 import { isEmpty } from "@/utils/helpers";
-import { Google, LockPassword, Mail } from "@/utils/icons";
+import { LockPassword, Mail } from "@/utils/icons";
 import { addToast, Button, Divider, Input, Link } from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Turnstile } from "@marsidev/react-turnstile";
@@ -32,20 +34,29 @@ const AuthLoginForm: React.FC<AuthFormProps> = ({ setForm }) => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-  const { success, message } = await signIn(data);
+    const isDev = process.env.NODE_ENV === "development";
 
-  addToast({
-    title: message,
-    color: success ? "success" : "danger",
+    // Skip captcha in development
+    if (!isDev && isEmpty(data.captchaToken)) {
+      setIsVerifying(true);
+      return;
+    }
+
+    const { success, message } = await signIn(data);
+
+    addToast({
+      title: message,
+      color: success ? "success" : "danger",
+    });
+
+    if (!success) {
+      setValue("captchaToken", undefined);
+      setIsVerifying(false);
+      return;
+    }
+
+    router.push("/");
   });
-
-  if (!success) {
-    setIsVerifying(false);
-    return;
-  }
-
-  router.push("/");
-});
 
   const onCaptchaSuccess = useCallback(
     (token: string) => {
@@ -53,7 +64,7 @@ const AuthLoginForm: React.FC<AuthFormProps> = ({ setForm }) => {
       setIsVerifying(false);
       onSubmit();
     },
-    [setValue, setIsVerifying, onSubmit],
+    [setValue, onSubmit]
   );
 
   const getButtonText = useCallback(() => {
@@ -68,6 +79,7 @@ const AuthLoginForm: React.FC<AuthFormProps> = ({ setForm }) => {
         <p className="text-small text-foreground-500 mb-4 text-center">
           Sign in to continue your streaming journey
         </p>
+
         <Input
           {...register("email")}
           isInvalid={!!errors.email?.message}
@@ -80,6 +92,7 @@ const AuthLoginForm: React.FC<AuthFormProps> = ({ setForm }) => {
           startContent={<Mail className="text-xl" />}
           isDisabled={isSubmitting || isVerifying}
         />
+
         <PasswordInput
           {...register("loginPassword")}
           isInvalid={!!errors.loginPassword?.message}
@@ -91,6 +104,7 @@ const AuthLoginForm: React.FC<AuthFormProps> = ({ setForm }) => {
           startContent={<LockPassword className="text-xl" />}
           isDisabled={isSubmitting || isVerifying}
         />
+
         <div className="flex w-full items-center justify-end px-1 py-2">
           <Link
             size="sm"
@@ -101,6 +115,15 @@ const AuthLoginForm: React.FC<AuthFormProps> = ({ setForm }) => {
             Forgot password?
           </Link>
         </div>
+
+        {process.env.NODE_ENV !== "development" && isVerifying && (
+          <Turnstile
+            className="flex h-fit w-full items-center justify-center"
+            siteKey={env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+            onSuccess={onCaptchaSuccess}
+          />
+        )}
+
         <Button
           className="mt-4"
           color="primary"
@@ -111,12 +134,15 @@ const AuthLoginForm: React.FC<AuthFormProps> = ({ setForm }) => {
           {getButtonText()}
         </Button>
       </form>
+
       <div className="flex items-center gap-4">
         <Divider className="flex-1" />
         <p className="text-tiny text-default-500 shrink-0">OR</p>
         <Divider className="flex-1" />
       </div>
+
       <GoogleLoginButton isDisabled={isSubmitting || isVerifying} />
+
       <p className="text-small text-center">
         Don't have an account?
         <Link
