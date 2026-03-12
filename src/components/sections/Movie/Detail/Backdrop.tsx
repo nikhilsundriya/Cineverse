@@ -26,11 +26,15 @@ const BackdropSection: React.FC<{
         src={titleImage}
       />
       <Image
-        radius="none"
-        alt={movie?.original_language === "id" ? movie?.original_title : movie?.title}
-        className="z-0 h-[35vh] w-screen object-cover object-center md:h-[50vh] lg:h-[70vh]"
-        src={backdropImage}
-      />
+  isBlurred
+  radius="none"
+  alt={movie?.original_language === "id" ? movie?.original_title : movie?.title}
+  src={
+    movie?.backdrop_path
+      ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+      : "/fallback-backdrop.jpg"
+  }
+/>
     </section>
   );
 };
