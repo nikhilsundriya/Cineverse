@@ -1,5 +1,4 @@
 "use client";
-
 import { Google } from "@/utils/icons";
 import { createClient } from "@/utils/supabase/client";
 import { addToast, Button } from "@heroui/react";
