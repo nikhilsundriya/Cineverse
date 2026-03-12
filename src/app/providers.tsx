@@ -21,32 +21,33 @@ export default function Providers({ children }: PropsWithChildren) {
   return (
     <QueryClientProvider client={queryClient}>
       <HeroUIProvider navigate={router.push}>
-        <ToastProvider
-          placement="top-right"
-          maxVisibleToasts={1}
-          toastOffset={10}
-          toastProps={{
-            shouldShowTimeoutProgress: true,
-            timeout: 5000,
-            classNames: {
-              content: "mr-7",
-              closeButton:
-                "opacity-100 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-auto",
-            },
-          }}
-        >
-          <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem>
-            <Suspense fallback={null}>
-              <ProgressProvider
-                options={{ showSpinner: false }}
-                color={`hsl(var(--heroui-${tv ? "warning" : "primary"}))`}
-              >
-                {children}
-              </ProgressProvider>
-            </Suspense>
-          </NextThemesProvider>
-        </ToastProvider>
+        <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem>
+          <Suspense fallback={null}>
+            <ProgressProvider
+              options={{ showSpinner: false }}
+              color={`hsl(var(--heroui-${tv ? "warning" : "primary"}))`}
+            >
+              {children}
+            </ProgressProvider>
+          </Suspense>
+        </NextThemesProvider>
       </HeroUIProvider>
+
+      {/* Toast Provider must NOT wrap children */}
+      <ToastProvider
+        placement="top-right"
+        maxVisibleToasts={1}
+        toastOffset={10}
+        toastProps={{
+          shouldShowTimeoutProgress: true,
+          timeout: 5000,
+          classNames: {
+            content: "mr-7",
+            closeButton:
+              "opacity-100 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-auto",
+          },
+        }}
+      />
 
       <div className="hidden md:block">
         <ReactQueryDevtools initialIsOpen={false} />
