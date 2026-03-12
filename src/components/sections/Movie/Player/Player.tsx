@@ -62,21 +62,22 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt }) => {
           hidden={idle && !mobile}
         />
 
-        <Card shadow="md" radius="none" className="relative min-h-screen">
+        <Card shadow="md" radius="none" className="relative h-screen w-full">
           <Skeleton className="absolute h-full w-full" />
 
           {/* Player iframe always renders to avoid mobile infinite loading */}
           <iframe
-            key={PLAYER.title}
-            src={PLAYER.source}
-            allow="fullscreen; autoplay; encrypted-media"
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer"
-            className={cn("z-10 h-full w-full border-0", {
-              "pointer-events-none": idle && !mobile,
-            })}
-          />
+  allowFullScreen
+  key={PLAYER.title}
+  src={PLAYER.source}
+  allow="fullscreen; autoplay; encrypted-media"
+  loading="lazy"
+  referrerPolicy="no-referrer"
+  className={cn(
+    "absolute inset-0 w-full h-full border-0",
+    { "pointer-events-none": idle && !mobile }
+  )}
+/>
         </Card>
       </div>
 
