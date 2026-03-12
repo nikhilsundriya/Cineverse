@@ -18,7 +18,6 @@ create table public.histories (
   updated_at timestamp with time zone not null default now(),
   unique (user_id, media_id, type, season, episode)
 );
-
 -- Auto-update updated_at
 create or replace function public.set_updated_at()
 returns trigger
