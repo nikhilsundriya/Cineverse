@@ -12,7 +12,6 @@ const withPWA = withPWAInit({
     disableDevLogs: true,
   },
 });
-
 const nextConfig: NextConfig = {
   // https://github.com/payloadcms/payload/issues/12550#issuecomment-2939070941
   turbopack: {
