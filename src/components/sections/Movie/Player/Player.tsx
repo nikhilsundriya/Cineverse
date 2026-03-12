@@ -11,6 +11,7 @@ import { parseAsInteger, useQueryState } from "nuqs";
 import { useMemo } from "react";
 import { MovieDetails } from "tmdb-ts/dist/types/movies";
 import { usePlayerEvents } from "@/hooks/usePlayerEvents";
+
 const AdsWarning = dynamic(() => import("@/components/ui/overlay/AdsWarning"));
 const MoviePlayerHeader = dynamic(() => import("./Header"));
 const MoviePlayerSourceSelection = dynamic(() => import("./SourceSelection"));
@@ -31,9 +32,10 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt }) => {
   const idle = useIdle(3000);
   const { mobile } = useBreakpoints();
   const [opened, handlers] = useDisclosure(false);
+
   const [selectedSource, setSelectedSource] = useQueryState<number>(
     "src",
-    parseAsInteger.withDefault(0),
+    parseAsInteger.withDefault(0)
   );
 
   usePlayerEvents({ saveHistory: true });
@@ -52,16 +54,22 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt }) => {
           onOpenSource={handlers.open}
           hidden={idle && !mobile}
         />
-        <Card shadow="md" radius="none" className="relative h-screen">
+
+        <Card shadow="md" radius="none" className="relative min-h-screen">
           <Skeleton className="absolute h-full w-full" />
-          {seen && (
-            <iframe
-              allowFullScreen
-              key={PLAYER.title}
-              src={PLAYER.source}
-              className={cn("z-10 h-full", { "pointer-events-none": idle && !mobile })}
-            />
-          )}
+
+          {/* Player iframe always renders to avoid mobile infinite loading */}
+          <iframe
+            key={PLAYER.title}
+            src={PLAYER.source}
+            allow="fullscreen; autoplay; encrypted-media"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            className={cn("z-10 h-full w-full border-0", {
+              "pointer-events-none": idle && !mobile,
+            })}
+          />
         </Card>
       </div>
 
