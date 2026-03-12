@@ -12,10 +12,17 @@ import { useMemo } from "react";
 import { MovieDetails } from "tmdb-ts/dist/types/movies";
 import { usePlayerEvents } from "@/hooks/usePlayerEvents";
 
-const AdsWarning = dynamic(() => import("@/components/ui/overlay/AdsWarning"));
-const MoviePlayerHeader = dynamic(() => import("./Header"));
-const MoviePlayerSourceSelection = dynamic(() => import("./SourceSelection"));
+const AdsWarning = dynamic(() => import("@/components/ui/overlay/AdsWarning"), {
+  ssr: false,
+});
 
+const MoviePlayerHeader = dynamic(() => import("./Header"), {
+  ssr: false,
+});
+
+const MoviePlayerSourceSelection = dynamic(() => import("./SourceSelection"), {
+  ssr: false,
+});
 interface MoviePlayerProps {
   movie: MovieDetails;
   startAt?: number;
