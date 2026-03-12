@@ -57,7 +57,7 @@ const AuthForgotPasswordForm: React.FC<AuthFormProps> = ({ setForm }) => {
       setIsVerifying(false);
       onSubmit();
     },
-    [setValue, onSubmit],
+    [setValue, onSubmit]
   );
 
   const getButtonText = useCallback(() => {
