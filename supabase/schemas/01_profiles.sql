@@ -3,7 +3,6 @@ create table public.profiles (
   username text not null unique,
   created_at timestamp with time zone default now()
 );
-
 alter table public.profiles enable row level security;
 
 -- Policies
