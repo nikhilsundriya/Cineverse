@@ -14,7 +14,10 @@ import { IS_PRODUCTION, SpacingClasses } from "@/utils/constants";
 import dynamic from "next/dynamic";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Suspense } from "react";
-const Disclaimer = dynamic(() => import("@/components/ui/overlay/Disclaimer"));
+
+const Disclaimer = dynamic(() => import("@/components/ui/overlay/Disclaimer"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -56,21 +59,25 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={cn("bg-background min-h-dvh antialiased select-none", Poppins.className)}>
-        <Suspense>
+      <body className={cn("bg-background min-h-dvh antialiased", Poppins.className)}>
+        <Suspense fallback={null}>
           <NuqsAdapter>
             <Providers>
               {IS_PRODUCTION && <Disclaimer />}
+
               <TopNavbar />
+
               <Sidebar>
                 <main className={cn("container mx-auto max-w-full", SpacingClasses.main)}>
                   {children}
                 </main>
               </Sidebar>
+
               <BottomNavbar />
             </Providers>
           </NuqsAdapter>
         </Suspense>
+
         <SpeedInsights debug={false} />
         <Analytics debug={false} />
       </body>
