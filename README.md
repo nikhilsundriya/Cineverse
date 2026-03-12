@@ -3,15 +3,15 @@
 <div style="text-align:center">
 ## 📸 Preview
 <p align="center">
-  <img src="./cineverse-preview.png" width="900"/>
+  <img src="./cineverse1.png" width="900"/>
 </p>
 
 <p align="center">
-  <img src="./cineverse-preview2.png" width="900"/>
+  <img src="./cineverse2.png" width="900"/>
 </p>
 
 <p align="center">
-  <img src="./cineverse-preview3.png" width="900"/>
+  <img src="./cineverse3.png" width="900"/>
 </p>
 
 🍿Cineverse🍿 is an open-source, free movies and TV shows streaming platform built with the latest web technologies. It offers a seamless and enjoyable viewing experience, allowing users to discover, search, and enjoy a vast library of content.
@@ -80,8 +80,6 @@ Contributions to Cineverse are welcome! If you'd like to contribute, please refe
 
 ## License
 
-<<<<<<< HEAD
 Cineverse is licensed under the [MIT License](LICENSE). This means you are free to use, modify, and distribute the application, as long as you include the original copyright and license notice in your work.
 
-=======
 CINEXTMA is licensed under the [MIT License](LICENSE). This means you are free to use, modify, and distribute the application, as long as you include the original copyright and license notice in your work.
