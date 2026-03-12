@@ -1,7 +1,6 @@
 # Cineverse - Free Movies & TV Shows Streaming
 
 <div style="text-align:center">
-
 ## 📸 Preview
 <p align="center">
   <img src="./cineverse-preview.png" width="900"/>
