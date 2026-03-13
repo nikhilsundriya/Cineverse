@@ -7,13 +7,11 @@ img.yarl__slide_image {
   background-color: transparent !important;
   padding: 0.5rem !important; /* sm:p-2 */
 }
-
 .yarl__container,
 .yarl__thumbnails_container {
   background-color: rgba(0, 0, 0, 0.8) !important; /* bg-black/80 */
   backdrop-filter: blur(4px) !important; /* backdrop-blur-sm */
 }
-
 button.yarl__thumbnails_thumbnail {
   border-radius: 0.5rem !important; /* rounded-medium */
   background-color: transparent !important;
@@ -112,7 +110,6 @@ button.yarl__thumbnails_thumbnail[aria-current="true"] {
     margin-right: 1rem !important;
   }
 }
-
 .yarl__thumbnails_vignette {
   display: none !important;
 }
