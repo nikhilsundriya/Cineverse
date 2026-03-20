@@ -14,7 +14,6 @@ export type SavedMovieDetails = {
   vote_average: number;
   saved_date: string;
 };
-
 export const DISCOVER_MOVIES_VALID_QUERY_TYPES = [
   "discover",
   "todayTrending",
