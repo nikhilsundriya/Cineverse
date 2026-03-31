@@ -11,7 +11,6 @@ create table public.watchlist (
   created_at timestamp with time zone not null default now(),
   primary key (user_id, id, type)
 );
-
 alter table public.watchlist enable row level security;
 
 -- Policies
